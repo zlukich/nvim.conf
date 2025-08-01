@@ -74,25 +74,50 @@ end
 time([[try_loadstring definition]], false)
 time([[Defining packer_plugins]], true)
 _G.packer_plugins = {
+  LuaSnip = {
+    loaded = true,
+    path = "/home/ole03293/.local/share/nvim/site/pack/packer/start/LuaSnip",
+    url = "https://github.com/L3MON4D3/LuaSnip"
+  },
   ["asyncomplete.vim"] = {
     loaded = true,
     path = "/home/ole03293/.local/share/nvim/site/pack/packer/start/asyncomplete.vim",
     url = "https://github.com/prabirshrestha/asyncomplete.vim"
-  },
-  ["blink.cmp"] = {
-    loaded = true,
-    path = "/home/ole03293/.local/share/nvim/site/pack/packer/start/blink.cmp",
-    url = "https://github.com/Saghen/blink.cmp"
   },
   ["cmp-nvim-lsp"] = {
     loaded = true,
     path = "/home/ole03293/.local/share/nvim/site/pack/packer/start/cmp-nvim-lsp",
     url = "https://github.com/hrsh7th/cmp-nvim-lsp"
   },
+  ["cmp-path"] = {
+    loaded = true,
+    path = "/home/ole03293/.local/share/nvim/site/pack/packer/start/cmp-path",
+    url = "https://github.com/hrsh7th/cmp-path"
+  },
+  cmp_luasnip = {
+    loaded = true,
+    path = "/home/ole03293/.local/share/nvim/site/pack/packer/start/cmp_luasnip",
+    url = "https://github.com/saadparwaiz1/cmp_luasnip"
+  },
+  ["copilot.lua"] = {
+    commands = { "Copilot" },
+    config = { "\27LJ\2\n»\2\0\0\5\0\n\0\r6\0\0\0'\2\1\0B\0\2\0029\0\2\0005\2\6\0005\3\3\0005\4\4\0=\4\5\3=\3\a\0025\3\b\0=\3\t\2B\0\2\1K\0\1\0\14filetypes\1\0\t\14gitcommit\1\6.\1\thelp\1\bcvs\1\tyaml\1\rhgcommit\1\14gitrebase\1\bsvn\1\rmarkdown\1\15suggestion\1\0\2\14filetypes\0\15suggestion\0\vkeymap\1\0\6\16accept_line\1\fdismiss\n<C-]>\vaccept\n<Tab>\tnext\n<M-]>\tprev\n<M-[>\16accept_word\1\1\0\4\fenabled\2\17auto_trigger\2\rdebounce\3K\vkeymap\0\nsetup\fcopilot\frequire\0" },
+    loaded = false,
+    needs_bufread = false,
+    only_cond = false,
+    path = "/home/ole03293/.local/share/nvim/site/pack/packer/opt/copilot.lua",
+    url = "https://github.com/zbirenbaum/copilot.lua"
+  },
   harpoon = {
     loaded = true,
     path = "/home/ole03293/.local/share/nvim/site/pack/packer/start/harpoon",
     url = "https://github.com/ThePrimeagen/harpoon"
+  },
+  iceberg = {
+    config = { "\27LJ\2\nZ\0\0\3\0\6\0\t6\0\0\0009\0\1\0'\1\3\0=\1\2\0006\0\0\0009\0\4\0'\2\5\0B\0\2\1K\0\1\0\24colorscheme iceberg\bcmd\nlight\15background\6o\bvim\0" },
+    loaded = true,
+    path = "/home/ole03293/.local/share/nvim/site/pack/packer/start/iceberg",
+    url = "https://github.com/cocopon/iceberg.vim"
   },
   ["mason-lspconfig.nvim"] = {
     loaded = true,
@@ -108,6 +133,11 @@ _G.packer_plugins = {
     loaded = true,
     path = "/home/ole03293/.local/share/nvim/site/pack/packer/start/nerdcommenter",
     url = "https://github.com/preservim/nerdcommenter"
+  },
+  nvim = {
+    loaded = true,
+    path = "/home/ole03293/.local/share/nvim/site/pack/packer/start/nvim",
+    url = "https://github.com/catppuccin/nvim"
   },
   ["nvim-cmp"] = {
     loaded = true,
@@ -139,12 +169,6 @@ _G.packer_plugins = {
     path = "/home/ole03293/.local/share/nvim/site/pack/packer/start/plenary.nvim",
     url = "https://github.com/nvim-lua/plenary.nvim"
   },
-  ["rose-pine"] = {
-    config = { "\27LJ\2\n9\0\0\3\0\3\0\0056\0\0\0009\0\1\0'\2\2\0B\0\2\1K\0\1\0\26colorscheme rose-pine\bcmd\bvim\0" },
-    loaded = true,
-    path = "/home/ole03293/.local/share/nvim/site/pack/packer/start/rose-pine",
-    url = "https://github.com/rose-pine/neovim"
-  },
   ["telescope.nvim"] = {
     loaded = true,
     path = "/home/ole03293/.local/share/nvim/site/pack/packer/start/telescope.nvim",
@@ -168,10 +192,29 @@ _G.packer_plugins = {
 }
 
 time([[Defining packer_plugins]], false)
--- Config for: rose-pine
-time([[Config for rose-pine]], true)
-try_loadstring("\27LJ\2\n9\0\0\3\0\3\0\0056\0\0\0009\0\1\0'\2\2\0B\0\2\1K\0\1\0\26colorscheme rose-pine\bcmd\bvim\0", "config", "rose-pine")
-time([[Config for rose-pine]], false)
+-- Config for: iceberg
+time([[Config for iceberg]], true)
+try_loadstring("\27LJ\2\nZ\0\0\3\0\6\0\t6\0\0\0009\0\1\0'\1\3\0=\1\2\0006\0\0\0009\0\4\0'\2\5\0B\0\2\1K\0\1\0\24colorscheme iceberg\bcmd\nlight\15background\6o\bvim\0", "config", "iceberg")
+time([[Config for iceberg]], false)
+
+-- Command lazy-loads
+time([[Defining lazy-load commands]], true)
+pcall(vim.api.nvim_create_user_command, 'Copilot', function(cmdargs)
+          require('packer.load')({'copilot.lua'}, { cmd = 'Copilot', l1 = cmdargs.line1, l2 = cmdargs.line2, bang = cmdargs.bang, args = cmdargs.args, mods = cmdargs.mods }, _G.packer_plugins)
+        end,
+        {nargs = '*', range = true, bang = true, complete = function()
+          require('packer.load')({'copilot.lua'}, {}, _G.packer_plugins)
+          return vim.fn.getcompletion('Copilot ', 'cmdline')
+      end})
+time([[Defining lazy-load commands]], false)
+
+vim.cmd [[augroup packer_load_aucmds]]
+vim.cmd [[au!]]
+  -- Event lazy-loads
+time([[Defining lazy-load event autocommands]], true)
+vim.cmd [[au InsertEnter * ++once lua require("packer.load")({'copilot.lua'}, { event = "InsertEnter *" }, _G.packer_plugins)]]
+time([[Defining lazy-load event autocommands]], false)
+vim.cmd("augroup END")
 
 _G._packer.inside_compile = false
 if _G._packer.needs_bufread == true then

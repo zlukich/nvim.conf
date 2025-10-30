@@ -1,30 +1,25 @@
---main Reserve a space in the gutter
--- This will avoid an annoying layout shift in the screen
+-- Reserve a space in the gutter
 vim.opt.signcolumn = 'yes'
 
--- Add cmp_nvim_lsp capabilities settings to lspconfig
--- This should be executed before you configure any language server
-local lspconfig_defaults = require('lspconfig').util.default_config
-lspconfig_defaults.capabilities = vim.tbl_deep_extend(
+-- Add cmp_nvim_lsp capabilities settings
+local capabilities = vim.tbl_deep_extend(
   'force',
-  lspconfig_defaults.capabilities,
+  vim.lsp.protocol.make_client_capabilities(),
   require('cmp_nvim_lsp').default_capabilities()
 )
 
 require('mason').setup({})
 require('mason-lspconfig').setup({
-  -- Replace the language servers listed here
-  -- with the ones you want to install
-  ensure_installed = { 'pyright', 'biome'},
+  ensure_installed = { 'pyright', 'biome' },
   handlers = {
     function(server_name)
-      require('lspconfig')[server_name].setup({})
+      -- Verwende die neue API für automatisch installierte Server
+      vim.lsp.enable(server_name)
     end,
   }
 })
 
--- This is where you enable features that only work
--- if there is a language server active in the file
+-- LSP Keybindings
 vim.api.nvim_create_autocmd('LspAttach', {
   desc = 'LSP actions',
   callback = function(event)
@@ -42,5 +37,22 @@ vim.api.nvim_create_autocmd('LspAttach', {
     vim.keymap.set('n', '<F4>', '<cmd>lua vim.lsp.buf.code_action()<cr>', opts)
   end,
 })
-require('lspconfig').gleam.setup({})
-require('lspconfig').ocamllsp.setup({})
+
+-- Konfiguriere zusätzliche Server mit der neuen API
+vim.lsp.config.gleam = {
+  cmd = { 'gleam', 'lsp' },
+  filetypes = { 'gleam' },
+  root_markers = { 'gleam.toml' },
+  capabilities = capabilities,
+}
+
+vim.lsp.config.ocamllsp = {
+  cmd = { 'ocamllsp' },
+  filetypes = { 'ocaml', 'ocaml.menhir', 'ocaml.interface', 'ocaml.ocamllex', 'reason', 'dune' },
+  root_markers = { '*.opam', 'esy.json', 'package.json', '.git', 'dune-project', 'dune-workspace' },
+  capabilities = capabilities,
+}
+
+-- Aktiviere die Server
+vim.lsp.enable('gleam')
+vim.lsp.enable('ocamllsp')

@@ -49,8 +49,8 @@ local function save_profiles(threshold)
 end
 
 time([[Luarocks path setup]], true)
-local package_path_str = "/home/ole03293/.cache/nvim/packer_hererocks/2.1.1713484068/share/lua/5.1/?.lua;/home/ole03293/.cache/nvim/packer_hererocks/2.1.1713484068/share/lua/5.1/?/init.lua;/home/ole03293/.cache/nvim/packer_hererocks/2.1.1713484068/lib/luarocks/rocks-5.1/?.lua;/home/ole03293/.cache/nvim/packer_hererocks/2.1.1713484068/lib/luarocks/rocks-5.1/?/init.lua"
-local install_cpath_pattern = "/home/ole03293/.cache/nvim/packer_hererocks/2.1.1713484068/lib/lua/5.1/?.so"
+local package_path_str = "/home/ole03293/.cache/nvim/packer_hererocks/2.1.1741730670/share/lua/5.1/?.lua;/home/ole03293/.cache/nvim/packer_hererocks/2.1.1741730670/share/lua/5.1/?/init.lua;/home/ole03293/.cache/nvim/packer_hererocks/2.1.1741730670/lib/luarocks/rocks-5.1/?.lua;/home/ole03293/.cache/nvim/packer_hererocks/2.1.1741730670/lib/luarocks/rocks-5.1/?/init.lua"
+local install_cpath_pattern = "/home/ole03293/.cache/nvim/packer_hererocks/2.1.1741730670/lib/lua/5.1/?.so"
 if not string.find(package.path, package_path_str, 1, true) then
   package.path = package.path .. ';' .. package_path_str
 end
@@ -101,7 +101,7 @@ _G.packer_plugins = {
   },
   ["copilot.lua"] = {
     commands = { "Copilot" },
-    config = { "\27LJ\2\n»\2\0\0\5\0\n\0\r6\0\0\0'\2\1\0B\0\2\0029\0\2\0005\2\6\0005\3\3\0005\4\4\0=\4\5\3=\3\a\0025\3\b\0=\3\t\2B\0\2\1K\0\1\0\14filetypes\1\0\t\14gitcommit\1\6.\1\thelp\1\bcvs\1\tyaml\1\rhgcommit\1\14gitrebase\1\bsvn\1\rmarkdown\1\15suggestion\1\0\2\14filetypes\0\15suggestion\0\vkeymap\1\0\6\16accept_line\1\fdismiss\n<C-]>\vaccept\n<Tab>\tnext\n<M-]>\tprev\n<M-[>\16accept_word\1\1\0\4\fenabled\2\17auto_trigger\2\rdebounce\3K\vkeymap\0\nsetup\fcopilot\frequire\0" },
+    config = { "\27LJ\2\n»\2\0\0\5\0\n\0\r6\0\0\0'\2\1\0B\0\2\0029\0\2\0005\2\6\0005\3\3\0005\4\4\0=\4\5\3=\3\a\0025\3\b\0=\3\t\2B\0\2\1K\0\1\0\14filetypes\1\0\t\bsvn\1\rhgcommit\1\thelp\1\14gitcommit\1\bcvs\1\6.\1\rmarkdown\1\tyaml\1\14gitrebase\1\15suggestion\1\0\2\14filetypes\0\15suggestion\0\vkeymap\1\0\6\vaccept\n<Tab>\tnext\n<M-]>\tprev\n<M-[>\fdismiss\n<C-]>\16accept_word\1\16accept_line\1\1\0\4\17auto_trigger\2\fenabled\2\vkeymap\0\rdebounce\3K\nsetup\fcopilot\frequire\0" },
     loaded = false,
     needs_bufread = false,
     only_cond = false,
@@ -113,11 +113,10 @@ _G.packer_plugins = {
     path = "/home/ole03293/.local/share/nvim/site/pack/packer/start/harpoon",
     url = "https://github.com/ThePrimeagen/harpoon"
   },
-  iceberg = {
-    config = { "\27LJ\2\nZ\0\0\3\0\6\0\t6\0\0\0009\0\1\0'\1\3\0=\1\2\0006\0\0\0009\0\4\0'\2\5\0B\0\2\1K\0\1\0\24colorscheme iceberg\bcmd\nlight\15background\6o\bvim\0" },
+  ["kanagawa.nvim"] = {
     loaded = true,
-    path = "/home/ole03293/.local/share/nvim/site/pack/packer/start/iceberg",
-    url = "https://github.com/cocopon/iceberg.vim"
+    path = "/home/ole03293/.local/share/nvim/site/pack/packer/start/kanagawa.nvim",
+    url = "https://github.com/rebelot/kanagawa.nvim"
   },
   ["mason-lspconfig.nvim"] = {
     loaded = true,
@@ -192,10 +191,6 @@ _G.packer_plugins = {
 }
 
 time([[Defining packer_plugins]], false)
--- Config for: iceberg
-time([[Config for iceberg]], true)
-try_loadstring("\27LJ\2\nZ\0\0\3\0\6\0\t6\0\0\0009\0\1\0'\1\3\0=\1\2\0006\0\0\0009\0\4\0'\2\5\0B\0\2\1K\0\1\0\24colorscheme iceberg\bcmd\nlight\15background\6o\bvim\0", "config", "iceberg")
-time([[Config for iceberg]], false)
 
 -- Command lazy-loads
 time([[Defining lazy-load commands]], true)

@@ -12,12 +12,12 @@ return require('packer').startup(function(use)
       requires = { {'nvim-lua/plenary.nvim'} }
   }
   use({
-      'cocopon/iceberg.vim',
-      as = 'iceberg',
-      config = function()
-          vim.o.background = 'light'     -- use the light variant
-          vim.cmd('colorscheme iceberg') -- load the theme
-      end,
+      'rebelot/kanagawa.nvim',
+      --as = 'iceberg',
+      --config = function()
+          --vim.o.background = 'light'     -- use the light variant
+          --vim.cmd('colorscheme iceberg') -- load the theme
+      --end,
   })
   use('nvim-treesitter/nvim-treesitter', {run = ':TSUpdate'})
   use('nvim-treesitter/playground')
